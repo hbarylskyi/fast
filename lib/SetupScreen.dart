@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'CustomSlider.dart';
-import 'StatefulSlider.dart';
 
 class SetupScreen extends StatefulWidget {
   const SetupScreen({Key? key}) : super(key: key);
@@ -20,6 +19,8 @@ class SetupScreenState extends State<SetupScreen> {
     FastSettingsState state = context.watch<FastSettingsState>();
     double fastStart = state.fastStart.toDouble();
     double fastDuration = state.fastDuration.toDouble();
+
+    print('fast start ' + fastStart.toString() + ' ' + fastDuration.toString());
 
     return Scaffold(
         backgroundColor: Colors.white,
@@ -55,13 +56,9 @@ class SetupScreenState extends State<SetupScreen> {
               const CustomSlider(
                 height: 130,
                 minValue: 1,
-                maxValue: 24,
+                maxValue: 23,
                 defValue: 8,
               ),
-
-              // Text(fastStart.toInt().toString() +
-              //     ' / ' +
-              //     fastDuration.toInt().toString()),
             ]),
             // Positioned(
             //   bottom: 150,
@@ -79,7 +76,7 @@ class SetupScreenState extends State<SetupScreen> {
             //                 child: Container(
             //                     color: Colors.amber,
             //                     alignment: Alignment.center,
-            //                     child: Text('There you go :)')),
+            //                     child: Text('palosanto')),
             //               ),
             //             )
             //           ],

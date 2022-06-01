@@ -1,6 +1,7 @@
 import 'package:fast/FastSettingsState.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import './Clocks.dart';
 
 class FastingScreen extends StatelessWidget {
   late FastSettingsState state;
@@ -13,6 +14,10 @@ class FastingScreen extends StatelessWidget {
 
     final fastStartHour = state.fastStart;
     final fastDuration = state.fastDuration;
+
+    final fastStartTime = TimeOfDay(hour: fastStartHour, minute: 0);
+    final fastEndTime =
+        TimeOfDay(hour: fastStartHour + fastDuration, minute: 0);
 
     final fastStartDate = DateTime(now.year, now.month, now.day, fastStartHour);
     final fastEndDate = fastStartDate.add(Duration(hours: fastDuration));
@@ -46,13 +51,21 @@ class FastingScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(isFastingNow ? 'Fasting' : 'Eating',
+                Text(isFastingNow ? 'now: fasting' : 'now: eating',
                     style: TextStyle(fontSize: 30)),
+
                 Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Text('time left: ' + timeLeftString,
-                      style: TextStyle(fontSize: 18)),
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    'your fasting time:\n' +
+                        fastStartTime.format(context) +
+                        ' - ' +
+                        fastEndTime.format(context),
+                    style: TextStyle(fontSize: 16),
+                    textAlign: TextAlign.center
+                  ),
                 ),
+                // Clocks()
               ],
             ),
           ),
@@ -63,7 +76,7 @@ class FastingScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 if (!didSwipeRight)
-                   Padding(
+                  Padding(
                     padding: EdgeInsets.all(12),
                     child: Container(
                       color: Colors.amber,
