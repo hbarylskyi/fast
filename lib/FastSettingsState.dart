@@ -6,8 +6,8 @@ class FastSettingsState with ChangeNotifier {
   late bool _didSwipeRight;
 
   FastSettingsState() {
-    _fastStart = 12;
-    _fastDuration = 6;
+    _fastStart = 10;
+    _fastDuration = 11;
     _didSwipeRight = false;
   }
 
@@ -28,7 +28,6 @@ class FastSettingsState with ChangeNotifier {
   bool get didSwipeRight => _didSwipeRight;
 
   swipedRight() {
-    print('right');
     _didSwipeRight = true;
     notifyListeners();
   }
