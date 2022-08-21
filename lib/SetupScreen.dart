@@ -1,3 +1,4 @@
+import 'package:fast/Clocks.dart';
 import 'package:fast/FastSettingsState.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -57,6 +58,10 @@ class SetupScreenState extends State<SetupScreen> {
                   onChanged: (_fastDuration) {
                     state.fastDuration = _fastDuration;
                   }),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Clocks(),
+              )
             ]),
           ],
         ));

@@ -5,13 +5,11 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:provider/provider.dart';
 
 class Clocks extends StatelessWidget {
-  late FastSettingsState state;
-
   @override
   Widget build(BuildContext context) {
     final now = DateTime.now();
 
-    state = context.read<FastSettingsState>();
+    var state = context.watch<FastSettingsState>();
 
     final fastStartHour = state.fastStart;
     final fastDuration = state.fastDuration;
@@ -20,6 +18,7 @@ class Clocks extends StatelessWidget {
     final fastEndTime =
         TimeOfDay(hour: fastStartHour + fastDuration, minute: 0);
 
+    
     // final fastStartDate = DateTime(now.year, now.month, now.day, fastStartHour);
     // final fastEndDate = fastStartDate.add(Duration(hours: fastDuration));
 
