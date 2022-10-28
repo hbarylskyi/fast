@@ -58,10 +58,6 @@ class SetupScreenState extends State<SetupScreen> {
                   onChanged: (_fastDuration) {
                     state.fastDuration = _fastDuration;
                   }),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Clocks(),
-              )
             ]),
           ],
         ));
