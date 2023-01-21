@@ -1,1 +1,3 @@
-# fast
+# fast  
+  
+simple fasting app :)
